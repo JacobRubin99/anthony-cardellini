@@ -5,11 +5,13 @@ import "material-icons/iconfont/material-icons.css";
 
 import "./Book.css";
 import samplePDF from "../../stories/sample5.pdf";
+import FlipData from "./data.json";
+import TextImg from "../../images/img1.JPG";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const width = 300;
-const height = 500;
+const width = 640;
+const height = 640;
 
 const Page = React.forwardRef(({ pageNumber }, ref) => {
   return (
@@ -21,6 +23,7 @@ const Page = React.forwardRef(({ pageNumber }, ref) => {
 
 export const Book = ({}) => {
   const book = useRef();
+  const { flipData } = FlipData;
 
   const handleKeyDown = (event) => {
     console.log("inside handlekeydown");
@@ -42,30 +45,15 @@ export const Book = ({}) => {
       >
         <div className={`material-icons md-48`}>keyboard_arrow_left</div>
       </div>
-      <Document
-        file={samplePDF}
-        options={{
-          cMapPacked: true,
-          cMapUrl: "cmaps/",
-          verbosity: pdfjs.VerbosityLevel.ERRORS,
-        }}
-      >
-        <HTMLFlipBook
-          width={width}
-          height={height}
-          usePortrait={false}
-          mobileScrollSupport={true}
-          ref={book}
-        >
-          <Page pageNumber={1} />
-          <Page pageNumber={2} />
-          <Page pageNumber={3} />
-          <Page pageNumber={4} />
-          <Page pageNumber={5} />
-          <Page pageNumber={6} />
-          <Page pageNumber={7} />
-        </HTMLFlipBook>
-      </Document>
+
+      <HTMLFlipBook usePortrait={false} width={480} height={640} ref={book}>
+        {flipData.map((el, i) => (
+          <div className="demoPage" key={el.id}>
+            <img src={TextImg} alt="" />
+          </div>
+        ))}
+      </HTMLFlipBook>
+
       <div
         ignore="1"
         className="turn-btn"
