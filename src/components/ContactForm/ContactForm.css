@@ -1,0 +1,39 @@
+.form-container {
+  background-color: var(--color-light-grey);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  row-gap: var(--spacing-m);
+  padding: var(--spacing-m);
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  color: red;
+}
+
+.submit {
+  background-color: var(--color-medium-blue);
+  border-radius: 0.25rem;
+  border: none;
+  color: var(--color-tan);
+  padding: var(--spacing-xs);
+}
+.submit:hover {
+  transform: translateY(-2px);
+  background-color: rgb(85, 122, 149, 0.9);
+}
+
+label {
+  display: flex;
+  justify-content: flex-start;
+  color: var(--color-dark-grey);
+}
+
+span {
+  color: red;
+}

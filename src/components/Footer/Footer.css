@@ -4,7 +4,7 @@
   align-items: center;
   row-gap: var(--spacing-xxs);
   padding: var(--spacing-m);
-  background-color: aqua;
+  background-color: var(--color-light-grey);
 }
 
 .social-container {
@@ -19,13 +19,14 @@ a.social {
 
 a.social:hover {
   transform: translateY(-2px);
+  color: var(--color-dark-grey);
 }
 
 a.icons {
-  color: var(--color-neutral-black);
+  color: var(--color-dark-grey);
 }
 
-h4 {
-  color: var(--color-neutral-black);
+h6 {
+  color: var(--color-dark-grey);
   margin: var(--spacing-s) var(--spacing-m);
 }

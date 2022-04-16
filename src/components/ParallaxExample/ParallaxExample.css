@@ -17,6 +17,6 @@ p {
 
 .next {
   padding: var(--spacing-l);
-  background-color: green;
+  background-color: var(--color-medium-blue);
   font-size: 36px;
 }

@@ -12,13 +12,24 @@ code {
     monospace;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
 :root {
   --color-neutral-black: #000;
   --color-neutral-white: #fff;
+  --color-dark-grey: #5d5c61;
+  --color-light-grey: #e0e0e0;
+  --color-light-blue: #7395ae;
+  --color-medium-blue: #557a95;
+  --color-tan: #e5d3b3;
   --spacing-l: 2rem;
   --spacing-m: 1.5rem;
   --spacing-s: 1rem;
   --spacing-xl: 2.5rem;
   --spacing-xs: 0.5rem;
   --spacing-xxs: 0.25rem;
+  background-color: var(--color-light-grey);
 }
