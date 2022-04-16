@@ -1,0 +1,33 @@
+.book-container {
+  align-items: center;
+  background-color: var(--color-dark-grey);
+  display: flex;
+  justify-content: center;
+  column-gap: var(--spacing-s);
+  height: 750px;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.react-pdf__Document {
+  display: inline-block;
+}
+
+.react-pdf__Page {
+  width: 300px;
+  height: 500px;
+}
+
+.react-pdf__Page__textContent {
+  display: none;
+}
+
+.turn-btn {
+  background-color: var(--color-neutral-white);
+  border-radius: 1rem;
+  color: var(--color-dark-grey);
+  cursor: pointer;
+  display: flex;
+}
