@@ -1,0 +1,28 @@
+.about-container {
+  align-items: center;
+  column-gap: var(--spacing-xl);
+  display: flex;
+  padding: 6rem 0;
+  margin: auto;
+  max-width: 800px;
+}
+.text-area {
+  flex: 1.5;
+}
+
+.title {
+  font-size: 1.75rem;
+  text-transform: uppercase;
+}
+
+.headshot {
+  aspect-ratio: 1/2;
+  flex: 1;
+}
+
+p {
+  color: var(--color-dark-grey);
+  font-size: 1rem;
+  line-height: 2;
+  margin: auto;
+}

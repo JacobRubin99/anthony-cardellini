@@ -1,32 +1,31 @@
-import React, { useRef } from "react";
+import React, { useState, useRef } from "react";
 import HTMLFlipBook from "react-pageflip";
 import { pdfjs, Document, Page as ReactPdfPage } from "react-pdf";
 import "material-icons/iconfont/material-icons.css";
 
 import "./Book.css";
-import samplePDF from "../../stories/sample5.pdf";
-import FlipData from "./data.json";
-import TextImg from "../../images/img1.JPG";
+import samplePDF from "../../stories/Pierre.pdf";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const width = 640;
-const height = 640;
-
-const Page = React.forwardRef(({ pageNumber }, ref) => {
+const Page = React.forwardRef(({ pageNumber, key }, ref) => {
   return (
     <div ref={ref}>
-      <ReactPdfPage pageNumber={pageNumber} width={width} />
+      <ReactPdfPage
+        pageNumber={pageNumber}
+        key={pageNumber}
+        width={700}
+        renderTextLayer={false}
+      />
     </div>
   );
 });
 
 export const Book = ({}) => {
   const book = useRef();
-  const { flipData } = FlipData;
+  const [numPages, setNumPages] = useState(null);
 
   const handleKeyDown = (event) => {
-    console.log("inside handlekeydown");
     if (event.keyCode === 37) {
       book.current.pageFlip().flipPrev();
     }
@@ -34,26 +33,30 @@ export const Book = ({}) => {
       book.current.pageFlip().flipNext();
     }
   };
-  document.addEventListener("keydown", handleKeyDown, false);
+
+  const onDocumentLoadSuccess = (pdf) => {
+    setNumPages(pdf?.numPages);
+    document.addEventListener("keydown", handleKeyDown, false);
+  };
 
   return (
     <div className="book-container">
       <div
         ignore="1"
         className="turn-btn"
-        onClick={() => book.current.pageFlip().flipPrev()}
+        onClick={() => {
+          book.current.pageFlip().flipPrev();
+        }}
       >
         <div className={`material-icons md-48`}>keyboard_arrow_left</div>
       </div>
-
-      <HTMLFlipBook usePortrait={false} width={480} height={640} ref={book}>
-        {flipData.map((el, i) => (
-          <div className="demoPage" key={el.id}>
-            <img src={TextImg} alt="" />
-          </div>
-        ))}
-      </HTMLFlipBook>
-
+      <Document file={samplePDF} onLoadSuccess={onDocumentLoadSuccess}>
+        <HTMLFlipBook width={700} height={900} ref={book}>
+          {[...Array(numPages)].map((page, i) => (
+            <Page pageNumber={i + 1} key={i + 1} />
+          ))}
+        </HTMLFlipBook>
+      </Document>
       <div
         ignore="1"
         className="turn-btn"

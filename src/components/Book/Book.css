@@ -1,10 +1,11 @@
 .book-container {
   align-items: center;
   background-color: var(--color-dark-grey);
-  display: flex;
-  justify-content: center;
   column-gap: var(--spacing-s);
-  height: 800px;
+  display: flex;
+  height: 1000px;
+  justify-content: center;
+  margin: auto;
 }
 
 body {
