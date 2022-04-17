@@ -13,7 +13,7 @@ export class About extends Component {
         <div className="about-container">
           <img
             src={headshot}
-            class="headshot"
+            className="headshot"
             alt="Headshot"
             aria-label="Anthony headshot"
           ></img>

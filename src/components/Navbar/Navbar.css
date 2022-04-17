@@ -1,0 +1,13 @@
+.navbar-container {
+  background-color: var(--color-light-grey);
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-l) 0;
+}
+
+/* .links {
+} */
+
+.button {
+  border: none;
+}

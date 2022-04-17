@@ -40,7 +40,7 @@ export const ContactForm = () => (
               Name <span>*</span>{" "}
             </label>
             <Field name="name" />
-            <div class="error">
+            <div className="error">
               <ErrorMessage name="name" />
             </div>
           </div>
@@ -50,7 +50,7 @@ export const ContactForm = () => (
               Email <span>*</span>{" "}
             </label>
             <Field name="email" />
-            <div class="error">
+            <div className="error">
               <ErrorMessage name="email" />
             </div>
           </div>
@@ -60,7 +60,7 @@ export const ContactForm = () => (
               Message <span>*</span>
             </label>
             <Field name="message" component="textarea" />
-            <div class="error">
+            <div className="error">
               <ErrorMessage name="message" />
             </div>
           </div>
